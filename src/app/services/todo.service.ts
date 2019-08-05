@@ -6,6 +6,8 @@ import ITodo from '../models/todo';
 })
 export class TodoService {
 
+    todoArray: ITodo[] = [];
+
     constructor() {
     }
 
@@ -22,19 +24,12 @@ export class TodoService {
             }));
     }
 
-    async addNew(): Promise<ITodo[]> {
+    async addNew(todo: ITodo): Promise<TodoService> {
         if (!this.newTitle) {
             return false;
         }
-        const newItem: ITodo = {
-            id: 1,
-            status: false,
-            title: this.newText,
-            text: this.newTitle
-        };
-        this.todosArray.unshift(newItem);
-        this.newText = '';
-        this.newTitle = '';
+        this.todoArray.push(todo)
+        return this;
     }
 
 }

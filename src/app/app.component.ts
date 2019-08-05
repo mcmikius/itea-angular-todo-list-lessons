@@ -19,11 +19,4 @@ export class AppComponent implements OnInit {
 
     }
 
-    // getData() {
-    //   fetch('https://jsonplaceholder.typicode.com/todos?limit=10')
-    //     .then(todos => {
-    //       this.todosArray = todos;
-    //     });
-    // }
-
 }
