@@ -5,9 +5,8 @@
   <div>
     <ul>
       <li *ngFor="let todo of todosArray">
-        <div>
+        <div class="content" [ngClass]="{completed: todo.status}">
           <label>
-            {{todo.status ? 'ok' : 'neok'}}
             <input type="checkbox" [(ngModel)]="todo.status"> {{todo.id}} - {{todo.text}}
             <button (click)="deleteItem(todo.text)">x</button>
           </label>
@@ -20,6 +19,5 @@
     <input type="text" placeholder="text" [(ngModel)]="newText">
     <button (click)="addNew()">+</button>
   </div>
-  <button (click)="show()">show in console</button>
 </div>
 

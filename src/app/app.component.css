@@ -1,5 +1,14 @@
 .completed {
-  text-decoration: line-through;
-  color: #333333;
+    text-decoration: line-through;
+    color: #333333;
 }
 
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+label:hover {
+    cursor: pointer;
+}
