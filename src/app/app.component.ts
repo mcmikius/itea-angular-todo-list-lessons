@@ -30,10 +30,6 @@ export class AppComponent implements  OnInit {
     // alert(text);
   }
 
-  show() {
-    console.log(this.todosArray)
-  }
-
   getData() {
     fetch('https://jsonplaceholder.typicode.com/todos')
       .then(response => response.json())
