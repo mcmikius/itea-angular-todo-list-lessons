@@ -2,44 +2,10 @@
     <div class="row">
         <div class="col-sm content-frame">
             <h1>{{title}}</h1>
-            <div>
-                <mat-card>
-                  <div class="text-field">
-                    <mat-form-field>
-
-                            <input type="text" matInput placeholder="title" [(ngModel)]="newTitle">
-
-                    </mat-form-field>
-                  </div>
-                  <div class="text-field">
-                    <mat-form-field>
-
-                            <input type="text" matInput placeholder="text" [(ngModel)]="newText">
-
-                    </mat-form-field>
-                  </div>
-                    <button mat-flat-button color="primary" (click)="addNew()"> CREATE
-                        <mat-icon>add</mat-icon>
-                    </button>
-                </mat-card>
-            </div>
-            <div class="list">
-                <mat-list>
-                    <mat-list-item *ngFor="let todo of todosArray">
-                        <div class="content" [ngClass]="{completed: todo.status}">
-                            <label>
-                                <mat-checkbox class="example-margin" [(ngModel)]="todo.status">{{todo.id}}
-                                    - {{todo.text}}</mat-checkbox>
-                                <!--                                <input type="checkbox" [(ngModel)]="todo.status"> {{todo.id}} - {{todo.text}}-->
-
-                                <button mat-button (click)="deleteItem(todo.text)">
-                                    <mat-icon>clear</mat-icon>
-                                </button>
-                            </label>
-                        </div>
-                    </mat-list-item>
-                </mat-list>
-            </div>
+            <app-item-form></app-item-form>
+            <app-todo-list>
+                <app-todo-item></app-todo-item>
+            </app-todo-list>
         </div>
     </div>
 </div>

@@ -1,0 +1,21 @@
+<div>
+    <mat-card>
+        <div class="text-field">
+            <mat-form-field>
+
+                <input type="text" matInput placeholder="title" [(ngModel)]="newTitle">
+
+            </mat-form-field>
+        </div>
+        <div class="text-field">
+            <mat-form-field>
+
+                <input type="text" matInput placeholder="text" [(ngModel)]="newText">
+
+            </mat-form-field>
+        </div>
+        <button mat-flat-button color="primary" (click)="addNew()"> CREATE
+            <mat-icon>add</mat-icon>
+        </button>
+    </mat-card>
+</div>

@@ -1,0 +1,11 @@
+<mat-list-item *ngFor="let todo of todosArray">
+    <div class="content" [ngClass]="{completed: todo.status}">
+        <label>
+            <mat-checkbox class="example-margin" [(ngModel)]="todo.status">{{todo.id}}
+                - {{todo.text}}</mat-checkbox>
+            <button mat-button (click)="deleteItem(todo.text)">
+                <mat-icon>clear</mat-icon>
+            </button>
+        </label>
+    </div>
+</mat-list-item>
