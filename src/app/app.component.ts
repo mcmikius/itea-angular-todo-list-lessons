@@ -20,8 +20,8 @@ export class AppComponent implements  OnInit {
     const newItem = {
       id: 1,
       status: false,
-      text: this.newText,
-      title: this.newTitle
+      title: this.newText,
+      text: this.newTitle
     };
     this.todosArray.unshift(newItem);
     this.newText = '';

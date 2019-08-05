@@ -1,25 +1,37 @@
-<div>
-  <div>
-    <h1>{{title}}</h1>
-  </div>
-  <div>
-    <ul>
-      <li *ngFor="let todo of todosArray">
-        <div class="content" [ngClass]="{completed: todo.status}">
-          <label>
-            <input type="checkbox" [(ngModel)]="todo.status"> {{todo.id}} - {{todo.text}}
-            <button mat-raised-button (click)="deleteItem(todo.text)">
-              <mat-icon>favorite</mat-icon>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm content-frame" >
+            <h1>{{title}}</h1>
+          <div>
+            <mat-card>
+            <mat-form-field>
+              <input type="text" matInput placeholder="title" [(ngModel)]="newTitle">
+            </mat-form-field>
+            <mat-form-field>
+              <input type="text" matInput placeholder="text" [(ngModel)]="newText">
+            </mat-form-field>
+            <button mat-flat-button color="primary" (click)="addNew()"> CREATE
+              <mat-icon>add</mat-icon>
             </button>
-          </label>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <div>
-    <input type="text" placeholder="title" [(ngModel)]="newTitle">
-    <input type="text" placeholder="text" [(ngModel)]="newText">
-    <button mat-raised-button (click)="addNew()">+</button>
-  </div>
-</div>
+              </mat-card>
+          </div>
+            <div class="list">
+                <mat-list>
+                    <mat-list-item *ngFor="let todo of todosArray">
+                        <div class="content" [ngClass]="{completed: todo.status}">
+                            <label>
+                                <mat-checkbox class="example-margin" [(ngModel)]="todo.status">{{todo.id}}
+                                    - {{todo.text}}</mat-checkbox>
+                                <!--                                <input type="checkbox" [(ngModel)]="todo.status"> {{todo.id}} - {{todo.text}}-->
 
+                                <button mat-button (click)="deleteItem(todo.text)">
+                                    <mat-icon>clear</mat-icon>
+                                </button>
+                            </label>
+                        </div>
+                    </mat-list-item>
+                </mat-list>
+            </div>
+        </div>
+    </div>
+</div>
