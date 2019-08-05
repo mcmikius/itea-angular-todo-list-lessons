@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {ITodo} from './todo';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +9,14 @@ import {Component, OnInit} from '@angular/core';
 export class AppComponent implements  OnInit {
 
   title = 'TODO';
-  todosArray = [];
+  todosArray: ITodo[] = [];
   newTitle = '';
   newText = '';
 
   addNew() {
+    if (!this.newText) {
+      return false;
+    }
     const newItem = {
       id: 1,
       status: false,
