@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import ITodo from './models/todo';
+import ITodo from './interfaces/todo';
 
 @Component({
     selector: 'app-root',
