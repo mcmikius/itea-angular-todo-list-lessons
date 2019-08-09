@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit} from '@angular/core';
+import ITodo from '../../interfaces/todo';
 import {TodoService} from '../../services/todo.service';
 
 @Component({
@@ -7,12 +8,21 @@ import {TodoService} from '../../services/todo.service';
   styleUrls: ['./todo-item.component.css']
 })
 export class TodoItemComponent implements OnInit {
+  @Input() todo: ITodo;
+  @Input() deleteItem = new EventEmitter<string>();
 
   constructor(private todoService: TodoService) {
-    this.todoService.getDate();
   }
 
   ngOnInit() {
 
+  }
+
+  delete(id: string) {
+    this.todoService.deleteTodo(id);
+  }
+
+  edit() {
+    this.todoService.editTodo(this.todo);
   }
 }

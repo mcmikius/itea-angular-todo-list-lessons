@@ -13,12 +13,12 @@ export class TodoService {
     getDate(): Promise<ITodo[]> {
         return fetch('https://jsonplaceholder.typicode.com/todos?_limit=10')
             .then(response => response.json())
-            .then(todos => todos.map((td) => {
+            .then(todos => todos.map((todo) => {
                 return {
-                    id: td.id,
-                    status: td.completed,
-                    text: td.title,
-                    title: td.reqtitle ? td.reqtitle : `Untitled ${td.id}`
+                    id: todo.id,
+                    status: todo.completed,
+                    text: todo.title,
+                    title: todo.reqtitle ? todo.reqtitle : `Untitled ${todo.id}`
                 };
             }));
     }
@@ -41,7 +41,26 @@ export class TodoService {
             }
         })
             .then(response => response.json())
-            .then(todo => console.log('TODO ADDED', todo));
+            .then(todo => console.log('NEW TODO ADDED', todo));
     }
+
+    editTodo(item: ITodo) {
+        return fetch(`https://jsonplaceholder.typicode.com/todos`, {
+            method: 'PUT',
+            body: JSON.stringify(item),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8'
+            }
+        })
+            .then(response => response.json())
+            .then(todo => console.log('TODO ITEM EDITTED', todo));
+    }
+
+    deleteTodo(id: string) {
+        return fetch(`https://jsonplaceholder.typicode.com/todos/${id}`)
+            .then(response => response.json())
+            .then(todo => console.log('TODO ITEM DELETED', todo));
+    }
+
 
 }
