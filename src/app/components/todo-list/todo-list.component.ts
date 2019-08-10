@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {TodoService} from '../../services/todo.service';
 import ITodo from '../../interfaces/todo';
 
@@ -12,17 +12,16 @@ export class TodoListComponent implements OnInit {
   todosArray: ITodo[] = [];
 
   constructor(private todoService: TodoService) {
-    this.todoService.getDate();
   }
 
-  ngOnInit(): void {
-    this.todoService.getDate().then((response) => {
+  ngOnInit() {
+    TodoService.getDate().then((response) => {
       this.todosArray = response;
     });
   }
 
-  deleteItem(text) {
-    const index = this.todosArray.findIndex(el => el.text === text);
+  deleteItem(text: string) {
+    const index = this.todosArray.findIndex(element => element.text === text);
     this.todosArray.splice(index, 1);
   }
 

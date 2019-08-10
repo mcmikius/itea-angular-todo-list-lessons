@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import ITodo from './interfaces/todo';
+import {TodoService} from './services/todo.service';
 
 @Component({
     selector: 'app-root',
@@ -10,9 +11,6 @@ import ITodo from './interfaces/todo';
 export class AppComponent implements OnInit {
 
     title = 'TODO';
-    todosArray: ITodo[] = [];
-    newTitle = '';
-    newText = '';
 
 
     ngOnInit(): void {

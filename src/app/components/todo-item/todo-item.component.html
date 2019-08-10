@@ -1,7 +1,7 @@
-<mat-list-item>
+<mat-list-item (click)="edit()">
     <div class="content" [ngClass]="{completed: todo.status}">
         <label>
-            <mat-checkbox class="example-margin" [(ngModel)]="todo.status">{{todo.id}}
+            <mat-checkbox [(ngModel)]="todo.status">{{todo.title}}
                 - {{todo.text}}</mat-checkbox>
             <button mat-button (click)="delete(todo.id)">
                 <mat-icon>clear</mat-icon>

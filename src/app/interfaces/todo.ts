@@ -1,5 +1,5 @@
 export default interface ITodo {
-    id: string;
+    id: number;
     title: string;
     text: string;
     status: boolean;

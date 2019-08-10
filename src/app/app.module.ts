@@ -15,6 +15,7 @@ import {AppComponent} from './app.component';
 import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { ItemFormComponent } from './components/item-form/item-form.component';
+import {AppRoutingModule} from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ItemFormComponent } from './components/item-form/item-form.component';
   imports: [
     BrowserModule,
     FormsModule,
+    AppRoutingModule,
     NgbModule,
     NgbPaginationModule,
     NgbAlertModule,

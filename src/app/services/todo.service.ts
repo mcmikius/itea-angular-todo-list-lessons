@@ -10,10 +10,10 @@ export class TodoService {
     constructor() {
     }
 
-    getDate(): Promise<ITodo[]> {
+    static getDate(): Promise<ITodo[]> {
         return fetch('https://jsonplaceholder.typicode.com/todos?_limit=10')
             .then(response => response.json())
-            .then(todos => todos.map((todo) => {
+            .then(todos => todos.map(todo => {
                 return {
                     id: todo.id,
                     status: todo.completed,
