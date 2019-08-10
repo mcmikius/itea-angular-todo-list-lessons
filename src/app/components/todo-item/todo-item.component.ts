@@ -9,7 +9,7 @@ import {TodoService} from '../../services/todo.service';
 })
 export class TodoItemComponent implements OnInit {
   @Input() todo: ITodo;
-  @Output() deleteItem = new EventEmitter<string>();
+  @Output() deleteItemById = new EventEmitter<string>();
 
   constructor(private todoService: TodoService) {
   }

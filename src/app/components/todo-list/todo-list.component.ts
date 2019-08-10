@@ -15,7 +15,7 @@ export class TodoListComponent implements OnInit {
   }
 
   ngOnInit() {
-    TodoService.getDate().then((response) => {
+    this.todoService.getData().then((response) => {
       this.todosArray = response;
     });
   }

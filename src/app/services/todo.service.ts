@@ -10,7 +10,7 @@ export class TodoService {
     constructor() {
     }
 
-    static getDate(): Promise<ITodo[]> {
+    getData(): Promise<ITodo[]> {
         return fetch('https://jsonplaceholder.typicode.com/todos?_limit=10')
             .then(response => response.json())
             .then(todos => todos.map(todo => {
@@ -21,6 +21,18 @@ export class TodoService {
                     title: todo.reqtitle ? todo.reqtitle : `Untitled ${todo.id}`
                 };
             }));
+    }
+    getTodo(id: string = '1'): Promise<ITodo> {
+        return fetch(`https://jsonplaceholder.typicode.com/todos/${id}`)
+            .then(response => response.json())
+            .then(todo => {
+                return {
+                    id: todo.id,
+                    status: todo.complete,
+                    text: todo.title,
+                    title: todo.reqtitle ? todo.reqtitle : `Untitled ${todo.id}`
+                };
+            });
     }
 
     addNew(data: IForm) {
@@ -61,6 +73,4 @@ export class TodoService {
             .then(response => response.json())
             .then(todo => console.log('TODO ITEM DELETED', todo));
     }
-
-
 }

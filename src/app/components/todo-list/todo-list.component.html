@@ -1,5 +1,5 @@
 <div class="list">
     <mat-list>
-        <app-todo-item *ngFor="let item of todosArray" [todo]="item" (deleteItem)="deleteItem($event)"></app-todo-item>
+        <app-todo-item *ngFor="let item of todosArray" [todo]="item" (deleteItemById)="deleteItem($event)"></app-todo-item>
     </mat-list>
 </div>
